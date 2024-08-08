@@ -22,6 +22,7 @@ const getData = async (req, res) => {
       timeToInteractive: lhr.audits["interactive"].numericValue,
       totalRequestSize: lhr.audits["total-byte-weight"].numericValue,
       numberOfRequests: lhr.audits["network-requests"].details.items.length,
+      largestContentfulPaint: lhr.audits['largest-contentful-paint'].numericValue,
     };
 
     return res.json(metrics);
@@ -35,5 +36,5 @@ const getData = async (req, res) => {
 
 module.exports = {
   getData,
-  
+
 };
